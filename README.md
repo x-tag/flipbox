@@ -1,17 +1,25 @@
-# About
+## Syntax
 
-This repo is an X-Tag custom web-component stub that can be used as a starting point when building new elements.  It provides that basic tools and grunt tasks to get started.
-
-# Dev Setup
+Flipbox allows you to place two elements back-to-back and then flip between them.
 
 ```
-Fork this repo, rename it, then clone it.
+  <x-flipbox>
+    <x-card>
+      <div>Front</div>
+      <div>Back</div>
+    </x-card>
+  </x-flipbox>
+```
 
-$ npm install	// install bower tasks
-$ bower install	// install components
-$ grunt build   // build the dependencies
+## Usage
 
 ```
+
+  var flipbox = document.createElement('x-flipbox');
+  flipbox.flipDirection = "up"; //   up, down, left, right
+  flipbox.toggle();
+```
+
 
 # Create X-Tag Components
 
