@@ -7,12 +7,24 @@
   <link rel="stylesheet" type="text/css" href="x-tag-components.css"/>
   <link rel="stylesheet" type="text/css" href="../src/flipbox.css"/>
 
-  <script type="text/javascript" src="x-tag-components.js"></script> 
-  <script type="text/javascript" src="../src/flipbox.js"></script>      
+  <script type="text/javascript" src="x-tag-components.js"></script>
+  <script type="text/javascript" src="../src/flipbox.js"></script>
 	<style>
     x-flipbox{
       height: 300px;
       width: 220px;
+    }
+
+    x-flipbox > *:first-child {
+      z-index: 5;
+      background-color: red;
+    }
+    x-flipbox > *:last-child {
+      z-index: 1;
+      background-color: blue;
+    }
+    x-flipbox{
+
     }
 	</style>
 </head>
@@ -22,14 +34,23 @@
 	<h2>Create a Demo</h2>
 
   <button data-action-type="toggleFlip">Flip</button>
-  <button data-action-type="toggleDirection">Switch Flip Direction (right)</button>       
+  <button data-action-type="toggleDirection">Switch Flip Direction (right)</button>
 
-  <x-flipbox id="flipbox_demo">
-    <x-card>
+  <x-flipbox>
+
       <img src="birnimal-graph.png"/>
       <img src="birnimal-settings.png"/>
-    </x-card>
+
   </x-flipbox>
+
+  <x-flipbox>
+
+      <h1>Front <button>HI</button></h1>
+      <h1>Back <button>BYE</button></h1>
+
+  </x-flipbox>
+
+
 
 
 </body>
@@ -37,24 +58,25 @@
 <script type="text/javascript">
 
   xtag.addEvent(document, 'click:delegate(button[data-action-type])', function(e) {
-    var flipbox = document.getElementById('flipbox_demo');
-    var action = e.target;
-    switch(action.getAttribute('data-action-type')) {
+    xtag.query(document, 'x-flipbox').forEach(function(flipbox){
+      var action = e.target;
+      switch(action.getAttribute('data-action-type')) {
 
-      case 'toggleFlip':
-        flipbox.toggle();
-        break;
+        case 'toggleFlip':
+          flipbox.toggle();
+          break;
 
-      case 'toggleDirection':
-        var directions = ['right','left','up','down'];
-        var idx = directions.indexOf(flipbox.flipDirection)+1;
-        idx = idx >= 4 ? 0 : idx;
-        action.innerHTML = action.innerHTML.replace(/\((\w+)\)/, function() {
-          return '(' + directions[idx] + ')';
-        });
-        flipbox.flipDirection = directions[idx];
-        break;
-    }
+        case 'toggleDirection':
+          var directions = ['right','left','up','down'];
+          var idx = directions.indexOf(flipbox.flipDirection)+1;
+          idx = idx >= 4 ? 0 : idx;
+          action.innerHTML = action.innerHTML.replace(/\((\w+)\)/, function() {
+            return '(' + directions[idx] + ')';
+          });
+          flipbox.flipDirection = directions[idx];
+          break;
+      }
+    });
   });
 
 </script>

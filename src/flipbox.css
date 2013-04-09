@@ -1,25 +1,22 @@
 x-flipbox {
   display: block;
   position: relative;
-}
-x-card { 
   height: 100%;
   width: 100%;
-  position: absolute;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
   -o-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  -webkit-transition: -webkit-transform 0.65s;  
-  -moz-transition: -moz-transform 0.65s;  
-  -ms-transition: -ms-transform 0.65s; 
-  -o-transition: -o-transform 0.65s;  
-  transition: transform 0.65s;
+  -webkit-perspective: 1400px;
+
 }
-x-card > * {
+
+x-flipbox > * {
   display: block;
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   background: white;
@@ -28,27 +25,61 @@ x-card > * {
   -ms-backface-visibility: hidden;
   -o-backface-visibility: hidden;
   backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform 0.65s;
+  -moz-transition: -moz-transform 0.65s;
+  -ms-transition: -ms-transform 0.65s;
+  -o-transition: -o-transform 0.65s;
+  transition: transform 0.65s;
 }
 
+x-flipbox > *:last-child{
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  z-index: 1;
+}
 
-x-flipbox.x-flip-direction-right x-card > *:last-child, 
-x-flipbox.x-flip-direction-left x-card > *:last-child, 
-x-card > *:last-child {  
+x-flipbox > *:first-child {
+  z-index: 2;
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+
+x-flipbox.x-card-flipped > *:last-child{
+  -webkit-transform: rotateY(360deg);
+  -moz-transform: rotateY(360deg);
+  -ms-transform: rotateY(360deg);
+  -o-transform: rotateY(360deg);
+  transform: rotateY(360deg);
+  z-index: 2;
+}
+
+x-flipbox.x-card-flipped > *:first-child {
+  z-index: 1;
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
   -ms-transform: rotateY(180deg);
   -o-transform: rotateY(180deg);
   transform: rotateY(180deg);
 }
-x-flipbox.x-card-flipped.x-flip-direction-right > x-card, 
-x-flipbox.x-card-flipped > x-card {
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  -ms-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
-  transform: rotateY(180deg);
+
+x-flipbox.x-flip-direction-left.x-card-flipped > *:last-child {
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+  z-index: 2;
 }
-x-flipbox.x-card-flipped.x-flip-direction-left > x-card {
+
+x-flipbox.x-flip-direction-left.x-card-flipped > *:first-child {
+  z-index: 1;
   -webkit-transform: rotateY(-180deg);
   -moz-transform: rotateY(-180deg);
   -ms-transform: rotateY(-180deg);
@@ -56,23 +87,72 @@ x-flipbox.x-card-flipped.x-flip-direction-left > x-card {
   transform: rotateY(-180deg);
 }
 
+x-flipbox.x-flip-direction-up > *:last-child {
+  -webkit-transform: rotateX(-180deg);
+  -moz-transform: rotateX(-180deg);
+  -ms-transform: rotateX(-180deg);
+  -o-transform: rotateX(-180deg);
+  transform: rotateX(-180deg);
+  z-index: 2;
+}
 
-x-flipbox.x-flip-direction-up x-card > *:last-child, 
-x-flipbox.x-flip-direction-down x-card > *:last-child {  
+x-flipbox.x-flip-direction-up > *:first-child {
+  z-index: 1;
+  -webkit-transform: rotateX(0deg);
+  -moz-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg);
+  -o-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}
+
+x-flipbox.x-flip-direction-up.x-card-flipped > *:last-child {
+  -webkit-transform: rotateX(0deg);
+  -moz-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg);
+  -o-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+  z-index: 2;
+}
+
+x-flipbox.x-flip-direction-up.x-card-flipped > *:first-child {
+  z-index: 1;
   -webkit-transform: rotateX(180deg);
   -moz-transform: rotateX(180deg);
   -ms-transform: rotateX(180deg);
   -o-transform: rotateX(180deg);
   transform: rotateX(180deg);
 }
-x-flipbox.x-card-flipped.x-flip-direction-up > x-card {
+
+
+x-flipbox.x-flip-direction-down > *:last-child {
   -webkit-transform: rotateX(180deg);
   -moz-transform: rotateX(180deg);
   -ms-transform: rotateX(180deg);
   -o-transform: rotateX(180deg);
   transform: rotateX(180deg);
+  z-index: 2;
 }
-x-flipbox.x-card-flipped.x-flip-direction-down > x-card {
+
+x-flipbox.x-flip-direction-down > *:first-child {
+  z-index: 1;
+  -webkit-transform: rotateX(0deg);
+  -moz-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg);
+  -o-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+}
+
+x-flipbox.x-flip-direction-down.x-card-flipped > *:last-child {
+  -webkit-transform: rotateX(0deg);
+  -moz-transform: rotateX(0deg);
+  -ms-transform: rotateX(0deg);
+  -o-transform: rotateX(0deg);
+  transform: rotateX(0deg);
+  z-index: 2;
+}
+
+x-flipbox.x-flip-direction-down.x-card-flipped > *:first-child {
+  z-index: 1;
   -webkit-transform: rotateX(-180deg);
   -moz-transform: rotateX(-180deg);
   -ms-transform: rotateX(-180deg);
