@@ -4,10 +4,8 @@ Flipbox allows you to place two elements back-to-back and then flip between them
 
 ```
   <x-flipbox>
-    <x-card>
-      <div>Front</div>
-      <div>Back</div>
-    </x-card>
+    <div>Front</div>
+    <div>Back</div>
   </x-flipbox>
 ```
 
