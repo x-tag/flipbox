@@ -33,7 +33,7 @@ x-flipbox > * {
   transition: transform 0.65s;
 }
 
-x-flipbox > *:last-child{
+x-flipbox > *:last-child {
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
   -ms-transform: rotateY(180deg);
@@ -51,7 +51,7 @@ x-flipbox > *:first-child {
   transform: rotateY(0deg);
 }
 
-x-flipbox.x-card-flipped > *:last-child{
+x-flipbox[flipped] > *:last-child{
   -webkit-transform: rotateY(360deg);
   -moz-transform: rotateY(360deg);
   -ms-transform: rotateY(360deg);
@@ -60,7 +60,7 @@ x-flipbox.x-card-flipped > *:last-child{
   z-index: 2;
 }
 
-x-flipbox.x-card-flipped > *:first-child {
+x-flipbox[flipped] > *:first-child {
   z-index: 1;
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
@@ -69,7 +69,7 @@ x-flipbox.x-card-flipped > *:first-child {
   transform: rotateY(180deg);
 }
 
-x-flipbox.x-flip-direction-left.x-card-flipped > *:last-child {
+x-flipbox[direction="left"][flipped] > *:last-child {
   -webkit-transform: rotateY(0deg);
   -moz-transform: rotateY(0deg);
   -ms-transform: rotateY(0deg);
@@ -78,7 +78,7 @@ x-flipbox.x-flip-direction-left.x-card-flipped > *:last-child {
   z-index: 2;
 }
 
-x-flipbox.x-flip-direction-left.x-card-flipped > *:first-child {
+x-flipbox[direction="left"][flipped] > *:first-child {
   z-index: 1;
   -webkit-transform: rotateY(-180deg);
   -moz-transform: rotateY(-180deg);
@@ -87,7 +87,7 @@ x-flipbox.x-flip-direction-left.x-card-flipped > *:first-child {
   transform: rotateY(-180deg);
 }
 
-x-flipbox.x-flip-direction-up > *:last-child {
+x-flipbox[direction="up"] > *:last-child {
   -webkit-transform: rotateX(-180deg);
   -moz-transform: rotateX(-180deg);
   -ms-transform: rotateX(-180deg);
@@ -96,7 +96,7 @@ x-flipbox.x-flip-direction-up > *:last-child {
   z-index: 2;
 }
 
-x-flipbox.x-flip-direction-up > *:first-child {
+x-flipbox[direction="up"] > *:first-child {
   z-index: 1;
   -webkit-transform: rotateX(0deg);
   -moz-transform: rotateX(0deg);
@@ -105,7 +105,7 @@ x-flipbox.x-flip-direction-up > *:first-child {
   transform: rotateX(0deg);
 }
 
-x-flipbox.x-flip-direction-up.x-card-flipped > *:last-child {
+x-flipbox[direction="up"][flipped] > *:last-child {
   -webkit-transform: rotateX(0deg);
   -moz-transform: rotateX(0deg);
   -ms-transform: rotateX(0deg);
@@ -114,7 +114,7 @@ x-flipbox.x-flip-direction-up.x-card-flipped > *:last-child {
   z-index: 2;
 }
 
-x-flipbox.x-flip-direction-up.x-card-flipped > *:first-child {
+x-flipbox[direction="up"][flipped] > *:first-child {
   z-index: 1;
   -webkit-transform: rotateX(180deg);
   -moz-transform: rotateX(180deg);
@@ -124,7 +124,7 @@ x-flipbox.x-flip-direction-up.x-card-flipped > *:first-child {
 }
 
 
-x-flipbox.x-flip-direction-down > *:last-child {
+x-flipbox[direction="down"] > *:last-child {
   -webkit-transform: rotateX(180deg);
   -moz-transform: rotateX(180deg);
   -ms-transform: rotateX(180deg);
@@ -133,7 +133,7 @@ x-flipbox.x-flip-direction-down > *:last-child {
   z-index: 2;
 }
 
-x-flipbox.x-flip-direction-down > *:first-child {
+x-flipbox[direction="down"] > *:first-child {
   z-index: 1;
   -webkit-transform: rotateX(0deg);
   -moz-transform: rotateX(0deg);
@@ -142,7 +142,7 @@ x-flipbox.x-flip-direction-down > *:first-child {
   transform: rotateX(0deg);
 }
 
-x-flipbox.x-flip-direction-down.x-card-flipped > *:last-child {
+x-flipbox[direction="down"][flipped] > *:last-child {
   -webkit-transform: rotateX(0deg);
   -moz-transform: rotateX(0deg);
   -ms-transform: rotateX(0deg);
@@ -151,7 +151,7 @@ x-flipbox.x-flip-direction-down.x-card-flipped > *:last-child {
   z-index: 2;
 }
 
-x-flipbox.x-flip-direction-down.x-card-flipped > *:first-child {
+x-flipbox[direction="down"][flipped] > *:first-child {
   z-index: 1;
   -webkit-transform: rotateX(-180deg);
   -moz-transform: rotateX(-180deg);

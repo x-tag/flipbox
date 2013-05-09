@@ -68,12 +68,12 @@
 
         case 'toggleDirection':
           var directions = ['right','left','up','down'];
-          var idx = directions.indexOf(flipbox.flipDirection)+1;
+          var idx = directions.indexOf(flipbox.direction)+1;
           idx = idx >= 4 ? 0 : idx;
           action.innerHTML = action.innerHTML.replace(/\((\w+)\)/, function() {
             return '(' + directions[idx] + ')';
           });
-          flipbox.flipDirection = directions[idx];
+          flipbox.direction = directions[idx];
           break;
       }
     });
