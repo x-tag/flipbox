@@ -9,7 +9,9 @@ x-flipbox {
   -o-transform-style: preserve-3d;
   transform-style: preserve-3d;
   -webkit-perspective: 1400px;
-
+  -moz-perspective: 1400px;
+  -ms-perspective: 1400px;
+  perspective: 1400px;
 }
 
 x-flipbox > * {
