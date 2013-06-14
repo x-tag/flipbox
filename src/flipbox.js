@@ -17,13 +17,16 @@
     },
     accessors: {
       direction: {
-        attribute: {},
+        get: function(){
+          return this.getAttribute('direction');
+        },
         set: function(value) {
-          if (this.flipped){
-            xtag.skipTransition(this.firstElementChild, function() {
-              this.setAttribute('direction', value);
-            }, this);
-          }
+          xtag.skipTransition(this.firstElementChild, function() {
+            this.setAttribute('direction', value);
+          }, this);
+          xtag.skipTransition(this.lastElementChild, function() {
+            this.setAttribute('direction', value);
+          }, this);
         }
       },
       flipped: {
