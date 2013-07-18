@@ -3,11 +3,6 @@ x-flipbox {
   position: relative;
   height: 100%;
   width: 100%;
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  -ms-transform-style: preserve-3d;
-  -o-transform-style: preserve-3d;
-  transform-style: preserve-3d;
   -webkit-perspective: 1400px;
   -moz-perspective: 1400px;
   -ms-perspective: 1400px;
