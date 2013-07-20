@@ -5,9 +5,14 @@ x-flipbox {
   width: 100%;
   -webkit-perspective: 1400px;
   -moz-perspective: 1400px;
+  -o-perspective: 1400px;
   -ms-perspective: 1400px;
   perspective: 1400px;
-}
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d; }
 
 x-flipbox > * {
   display: block;
@@ -23,136 +28,106 @@ x-flipbox > * {
   -o-backface-visibility: hidden;
   backface-visibility: hidden;
   -webkit-transform-style: preserve-3d;
-  -webkit-transition: -webkit-transform 0.65s;
-  -moz-transition: -moz-transform 0.65s;
-  -ms-transition: -ms-transform 0.65s;
-  -o-transition: -o-transform 0.65s;
-  transition: transform 0.65s;
-}
-
-x-flipbox > *:last-child {
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  -ms-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
-  transform: rotateY(180deg);
-  z-index: 1;
-}
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  transition-property: transform;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  -o-transition-property: -o-transform;
+  transition-duration: 0.65s;
+  -webkit-transition-duration: 0.65s;
+  -moz-transition-duration: 0.65s;
+  -o-transition-duration: 0.65s;
+  -webkit-transition-timing-function: ease-in;
+  -moz-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+  -webkit-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s; }
 
 x-flipbox > *:first-child {
-  z-index: 2;
-  -webkit-transform: rotateY(0deg);
-  -moz-transform: rotateY(0deg);
-  -ms-transform: rotateY(0deg);
-  -o-transform: rotateY(0deg);
-  transform: rotateY(0deg);
-}
-
-x-flipbox[flipped] > *:last-child{
-  -webkit-transform: rotateY(360deg);
-  -moz-transform: rotateY(360deg);
-  -ms-transform: rotateY(360deg);
-  -o-transform: rotateY(360deg);
-  transform: rotateY(360deg);
-  z-index: 2;
-}
+  transform: rotateY(0deg) translateZ(1px);
+  -ms-transform: rotateY(0deg) translateZ(1px);
+  -moz-transform: rotateY(0deg) translateZ(1px);
+  -webkit-transform: rotateY(0deg) translateZ(1px);
+  -o-transform: rotateY(0deg) translateZ(1px); }
+x-flipbox > *:last-child {
+  transform: rotateY(180deg) translateZ(0px);
+  -ms-transform: rotateY(180deg) translateZ(0px);
+  -moz-transform: rotateY(180deg) translateZ(0px);
+  -webkit-transform: rotateY(180deg) translateZ(0px);
+  -o-transform: rotateY(180deg) translateZ(0px); }
+x-flipbox[direction="up"] > *:first-child, x-flipbox[direction="down"] > *:first-child {
+  transform: rotateX(0deg) translateZ(1px);
+  -ms-transform: rotateX(0deg) translateZ(1px);
+  -moz-transform: rotateX(0deg) translateZ(1px);
+  -webkit-transform: rotateX(0deg) translateZ(1px);
+  -o-transform: rotateX(0deg) translateZ(1px); }
+x-flipbox[direction="up"] > *:last-child {
+  transform: rotateX(-180deg) translateZ(0px);
+  -ms-transform: rotateX(-180deg) translateZ(0px);
+  -moz-transform: rotateX(-180deg) translateZ(0px);
+  -webkit-transform: rotateX(-180deg) translateZ(0px);
+  -o-transform: rotateX(-180deg) translateZ(0px); }
+x-flipbox[direction="down"] > *:last-child {
+  transform: rotateX(180deg) translateZ(0px);
+  -ms-transform: rotateX(180deg) translateZ(0px);
+  -moz-transform: rotateX(180deg) translateZ(0px);
+  -webkit-transform: rotateX(180deg) translateZ(0px);
+  -o-transform: rotateX(180deg) translateZ(0px); }
 
 x-flipbox[flipped] > *:first-child {
-  z-index: 1;
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  -ms-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
-  transform: rotateY(180deg);
-}
-
-x-flipbox[direction="left"][flipped] > *:last-child {
-  -webkit-transform: rotateY(0deg);
-  -moz-transform: rotateY(0deg);
-  -ms-transform: rotateY(0deg);
-  -o-transform: rotateY(0deg);
-  transform: rotateY(0deg);
-  z-index: 2;
-}
+  transform: rotateY(180deg) translateZ(1px);
+  -ms-transform: rotateY(180deg) translateZ(1px);
+  -moz-transform: rotateY(180deg) translateZ(1px);
+  -webkit-transform: rotateY(180deg) translateZ(1px);
+  -o-transform: rotateY(180deg) translateZ(1px); }
+x-flipbox[flipped] > *:last-child {
+  transform: rotateY(360deg) translateZ(0px);
+  -ms-transform: rotateY(360deg) translateZ(0px);
+  -moz-transform: rotateY(360deg) translateZ(0px);
+  -webkit-transform: rotateY(360deg) translateZ(0px);
+  -o-transform: rotateY(360deg) translateZ(0px); }
 
 x-flipbox[direction="left"][flipped] > *:first-child {
-  z-index: 1;
-  -webkit-transform: rotateY(-180deg);
-  -moz-transform: rotateY(-180deg);
-  -ms-transform: rotateY(-180deg);
-  -o-transform: rotateY(-180deg);
-  transform: rotateY(-180deg);
-}
-
-x-flipbox[direction="up"] > *:last-child {
-  -webkit-transform: rotateX(-180deg);
-  -moz-transform: rotateX(-180deg);
-  -ms-transform: rotateX(-180deg);
-  -o-transform: rotateX(-180deg);
-  transform: rotateX(-180deg);
-  z-index: 2;
-}
-
-x-flipbox[direction="up"] > *:first-child {
-  z-index: 1;
-  -webkit-transform: rotateX(0deg);
-  -moz-transform: rotateX(0deg);
-  -ms-transform: rotateX(0deg);
-  -o-transform: rotateX(0deg);
-  transform: rotateX(0deg);
-}
-
-x-flipbox[direction="up"][flipped] > *:last-child {
-  -webkit-transform: rotateX(0deg);
-  -moz-transform: rotateX(0deg);
-  -ms-transform: rotateX(0deg);
-  -o-transform: rotateX(0deg);
-  transform: rotateX(0deg);
-  z-index: 2;
-}
+  transform: rotateY(-180deg) translateZ(1px);
+  -ms-transform: rotateY(-180deg) translateZ(1px);
+  -moz-transform: rotateY(-180deg) translateZ(1px);
+  -webkit-transform: rotateY(-180deg) translateZ(1px);
+  -o-transform: rotateY(-180deg) translateZ(1px); }
+x-flipbox[direction="left"][flipped] > *:last-child {
+  transform: rotateY(0deg) translateZ(0px);
+  -ms-transform: rotateY(0deg) translateZ(0px);
+  -moz-transform: rotateY(0deg) translateZ(0px);
+  -webkit-transform: rotateY(0deg) translateZ(0px);
+  -o-transform: rotateY(0deg) translateZ(0px); }
 
 x-flipbox[direction="up"][flipped] > *:first-child {
-  z-index: 1;
-  -webkit-transform: rotateX(180deg);
-  -moz-transform: rotateX(180deg);
-  -ms-transform: rotateX(180deg);
-  -o-transform: rotateX(180deg);
-  transform: rotateX(180deg);
-}
-
-
-x-flipbox[direction="down"] > *:last-child {
-  -webkit-transform: rotateX(180deg);
-  -moz-transform: rotateX(180deg);
-  -ms-transform: rotateX(180deg);
-  -o-transform: rotateX(180deg);
-  transform: rotateX(180deg);
-  z-index: 2;
-}
-
-x-flipbox[direction="down"] > *:first-child {
-  z-index: 1;
-  -webkit-transform: rotateX(0deg);
-  -moz-transform: rotateX(0deg);
-  -ms-transform: rotateX(0deg);
-  -o-transform: rotateX(0deg);
-  transform: rotateX(0deg);
-}
-
-x-flipbox[direction="down"][flipped] > *:last-child {
-  -webkit-transform: rotateX(0deg);
-  -moz-transform: rotateX(0deg);
-  -ms-transform: rotateX(0deg);
-  -o-transform: rotateX(0deg);
-  transform: rotateX(0deg);
-  z-index: 2;
-}
+  transform: rotateX(180deg) translateZ(1px);
+  -ms-transform: rotateX(180deg) translateZ(1px);
+  -moz-transform: rotateX(180deg) translateZ(1px);
+  -webkit-transform: rotateX(180deg) translateZ(1px);
+  -o-transform: rotateX(180deg) translateZ(1px); }
+x-flipbox[direction="up"][flipped] > *:last-child {
+  transform: rotateX(0deg) translateZ(0px);
+  -ms-transform: rotateX(0deg) translateZ(0px);
+  -moz-transform: rotateX(0deg) translateZ(0px);
+  -webkit-transform: rotateX(0deg) translateZ(0px);
+  -o-transform: rotateX(0deg) translateZ(0px); }
 
 x-flipbox[direction="down"][flipped] > *:first-child {
-  z-index: 1;
-  -webkit-transform: rotateX(-180deg);
-  -moz-transform: rotateX(-180deg);
-  -ms-transform: rotateX(-180deg);
-  -o-transform: rotateX(-180deg);
-  transform: rotateX(-180deg);
-}
+  transform: rotateX(-180deg) translateZ(1px);
+  -ms-transform: rotateX(-180deg) translateZ(1px);
+  -moz-transform: rotateX(-180deg) translateZ(1px);
+  -webkit-transform: rotateX(-180deg) translateZ(1px);
+  -o-transform: rotateX(-180deg) translateZ(1px); }
+x-flipbox[direction="down"][flipped] > *:last-child {
+  transform: rotateX(0deg) translateZ(0px);
+  -ms-transform: rotateX(0deg) translateZ(0px);
+  -moz-transform: rotateX(0deg) translateZ(0px);
+  -webkit-transform: rotateX(0deg) translateZ(0px);
+  -o-transform: rotateX(0deg) translateZ(0px); }

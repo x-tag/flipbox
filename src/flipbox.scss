@@ -1,0 +1,112 @@
+@import "custommixins";
+
+$frontFace: "> *:first-child";
+$backFace: "> *:last-child";
+
+@mixin frontFaceTransform($transform){
+  @include transformed(#{$transform} translateZ(1px));
+}
+
+@mixin backFaceTransform($transform){
+  @include transformed(#{$transform} translateZ(0px));
+}
+
+x-flipbox {
+  display: block;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  @include perspective(1400px);
+
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+x-flipbox > * {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  @include backfaceVisibility(hidden);
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  @include animated(transform, 0.65s);
+}
+
+// default styles
+x-flipbox{
+  &#{$frontFace}{
+    @include frontFaceTransform(rotateY(0deg));
+  }
+
+  &#{$backFace} {
+    @include backFaceTransform(rotateY(180deg));
+  }
+
+  &[direction="up"], &[direction="down"]{
+    &#{$frontFace} {
+      @include frontFaceTransform(rotateX(0deg));
+    }
+  }
+
+  &[direction="up"]#{$backFace}{
+    @include backFaceTransform(rotateX(-180deg));
+  } 
+
+  &[direction="down"]#{$backFace}{
+    @include backFaceTransform(rotateX(180deg));
+  }
+}
+
+// flip right
+x-flipbox[flipped]{
+  &#{$frontFace}{
+    @include frontFaceTransform(rotateY(180deg));
+  }
+
+  &#{$backFace} {
+    @include backFaceTransform(rotateY(360deg));
+  }
+}
+
+// flip left
+x-flipbox[direction="left"][flipped]{
+  &#{$frontFace}{
+    @include frontFaceTransform(rotateY(-180deg));
+  }
+
+  &#{$backFace} {
+    @include backFaceTransform(rotateY(0deg));
+  } 
+}
+
+// flip up
+x-flipbox[direction="up"][flipped]{
+  &#{$frontFace}{
+    @include frontFaceTransform(rotateX(180deg));
+  }
+
+  &#{$backFace} {
+    @include backFaceTransform(rotateX(0deg));
+  } 
+}
+
+// flip down
+x-flipbox[direction="down"][flipped]{
+  &#{$frontFace}{
+    @include frontFaceTransform(rotateX(-180deg));
+  }
+
+  &#{$backFace} {
+    @include backFaceTransform(rotateX(0deg));
+  } 
+}
