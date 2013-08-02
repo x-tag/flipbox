@@ -1,6 +1,11 @@
 $IMG_FOLDER: "../images/";
 $FONTS_FOLDER: "../fonts/";
 
+// http://stackoverflow.com/a/12335841
+@function strip-units($number) {
+    @return $number / ($number * 0 + 1);
+}
+
 @mixin mobileMediaOverride{
     @media only screen and (max-device-width : 1024px){
         @content;
@@ -42,7 +47,7 @@ $FONTS_FOLDER: "../fonts/";
         }
         font-weight: $fontWeight;
         font-style: $fontStyle;
-        src: url($fontFolder + $fileName + $fontExt) format($format);
+        src: url("#{$fontFolder}#{$fileName}#{$fontExt}") format($format);
     }
 }
 
@@ -73,21 +78,26 @@ $FONTS_FOLDER: "../fonts/";
                                              -webkit-transform);
     -moz-transition-property: replaceItem($properties, transform, 
                                           -moz-transform);
+    -ms-transition-property: replaceItem($properties, transform, 
+                                        -o-transform);
     -o-transition-property: replaceItem($properties, transform, 
                                         -o-transform);
     
     transition-duration: $durations;
     -webkit-transition-duration: $durations;
     -moz-transition-duration: $durations;
+    -ms-transition-duration: $durations;
     -o-transition-duration: $durations;
     
     -webkit-transition-timing-function:$timings;
     -moz-transition-timing-function:$timings;
+    -ms-transition-timing-function:$timings;
     -o-transition-timing-function:$timings;
     transition-timing-function:$timings;
     
     -webkit-transition-delay:$delays;
     -moz-transition-delay:$delays;
+    -ms-transition-delay:$delays;
     -o-transition-delay:$delays;
     transition-delay:$delays;
 }
@@ -98,6 +108,17 @@ $FONTS_FOLDER: "../fonts/";
     -moz-transform:$transform; // Firefox
     -webkit-transform:$transform; // Safari and Chrome
     -o-transform:$transform; // Opera
+}
+
+@mixin absoluteCentered(){
+    position:absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 @mixin shadowed($color:grey){
@@ -139,7 +160,7 @@ $FONTS_FOLDER: "../fonts/";
 }
 
 @mixin spriteIcon($imgName, $width:auto, $height:auto, $fill:true, $imgFolder: $IMG_FOLDER){
-    background-image: url($imgFolder + $imgName);
+    background-image: url("#{$imgFolder}#{$imgName}");
     background-repeat: no-repeat;
     background-position: center center;
     width: $width;
