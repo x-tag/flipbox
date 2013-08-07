@@ -3,10 +3,12 @@
 $frontFace: "> *:first-child";
 $backFace: "> *:last-child";
 
+// use this for any transforms of the original front face to preserve z-index
 @mixin frontFaceTransform($transform){
   @include transformed(#{$transform} translateZ(1px));
 }
 
+// use this for any transforms of the original back face to preserve z-index
 @mixin backFaceTransform($transform){
   @include transformed(#{$transform} translateZ(0px));
 }
