@@ -36,7 +36,7 @@
 		},
 		"events": {
 			"flipend": "The flipbox fires a flipend event whenever it fully finishes a flipping animation. This will not fire if the flipping animation is interrupted before completion.",
-			"*: show": "If either the front face or the back face of the flipbox receives a show event, the flipbox will automatically show that side."
+			"show": "If either the front face or the back face of the flipbox receives a show event, the flipbox will automatically show that side. \n Note: this event is not fired by the flipbox itself."
 		}
 	}
 }

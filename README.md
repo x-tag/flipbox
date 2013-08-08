@@ -48,9 +48,11 @@ Forces the flipbox to display its back face.
 
 The `<x-flipbox>` fires a `flipend` whenever it fully finishes a flipping animation. This will not fire if the flipping animation is interrupted before completion.
 
-##: *: ___show___
+##: ___show___
 
 If either the front face or the back face of the flipbox receives a `show` event, the flipbox will automatically show that side.
+
+X-flipbox does not fire this event.
 
 # Styling
 
