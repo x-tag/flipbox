@@ -3,7 +3,7 @@
 	"tagName": "x-flipbox",
 	"version": "0.2.1",
 	"author": "Arron Schaar, Daniel Buchner",
-	"description": "The flipbox tag allows you to flip a content element with a CSS Animation to the other side to view additional content. An example use of flipbox, would be to flip and app's content to reveal a settings panel",
+	"description": "Flips between two content elements with a CSS Animation, similar to flipping a playing card. The front face default to the first direct child element of the <x-flipbox>, and the back face defaults to the last direct child element.",
 	"images": [],
 	"categories": [
 		"structural"
@@ -25,7 +25,10 @@
 			"flipDirection": "The direction to flip. Valid values are right, left, up, and down."
 		},
 		"methods": {
-			"toggle": "Flips the card"
+			"toggle": "Flips the card to its opposite face."
+		},
+		"events": {
+			"*: show": "If either the front face or the back face of the flipbox receives a show event, the flipbox will automatically show that side."
 		}
 	}
 }
