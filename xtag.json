@@ -3,7 +3,7 @@
 	"tagName": "x-flipbox",
 	"version": "0.2.1",
 	"author": "Arron Schaar, Daniel Buchner",
-	"description": "Flips between two content elements with a CSS Animation, similar to flipping a playing card. The front face default to the first direct child element of the <x-flipbox>, and the back face defaults to the last direct child element.",
+	"description": "Flips between two content elements with a CSS Animation, similar to flipping a playing card. The front face defaults to the first direct child element of the <x-flipbox>, and the back face defaults to the last direct child element.",
 	"images": [],
 	"categories": [
 		"structural"
@@ -17,7 +17,7 @@
 		"ios": 4
 	},
 	"documentation": {
-		"attrtibutes": {
+		"attributes": {
 			"direction": "Indicates which direction the flip-animation swivels towards. Valid options are 'right', 'left', 'up', and 'down'. Defaults to 'left'.",
 			"flipped": "Boolean attribute indicating whether the back face of the flipbox is showing or not."
 		},
