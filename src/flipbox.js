@@ -3,16 +3,28 @@
   xtag.register('x-flipbox', {
     lifecycle: {
       created: function() {
-        if (this.flipped){
-          xtag.skipTransition(this.firstElementChild,function(){});
-        } else {
-          xtag.skipTransition(this.lastElementChild,function(){});
-        }
+          // instantiate flipped side without initial animation
+          if (this.flipped){
+            xtag.skipTransition(this.firstElementChild,function(){});
+          } else {
+            xtag.skipTransition(this.lastElementChild,function(){});
+          }
+
+          if(!this.hasAttribute("direction")){
+            this.xtag._direction = "right";
+          }
       }
     },
     events:{
-      'transitionend': function(e) {
-        if (e.target == this) xtag.fireEvent(this, 'flipend');
+      // only listen to one side of flipbox to prevent double firing of flipend
+      'transitionend:delegate(*:first-child)': function(e) {
+          // because we can't use the descendent selector of > at the front of
+          // our delegation, make sure this is the correct top-level element
+          var frontCard = e.target;
+          var flipBox = frontCard.parentNode;
+          if(flipBox.nodeName.toLowerCase() === "x-flipbox"){
+            xtag.fireEvent(flipBox, "flipend");
+          }
       },
       'show:delegate(*:first-child)': function(e){
          // because we can't use the descendent selector of > at the front of
@@ -39,16 +51,20 @@
     },
     accessors: {
       direction: {
+        attribute: {},
         get: function(){
-          return this.getAttribute('direction');
+          return this.xtag._direction;
         },
         set: function(value) {
+          // set animation direction attribute and skip any transition
           xtag.skipTransition(this.firstElementChild, function() {
-            this.setAttribute('direction', value);
+            this.setAttribute('_anim-direction', value);
           }, this);
           xtag.skipTransition(this.lastElementChild, function() {
-            this.setAttribute('direction', value);
+            this.setAttribute('_anim-direction', value);
           }, this);
+
+          this.xtag._direction = value;
         }
       },
       flipped: {
@@ -58,6 +74,12 @@
     methods: {
       toggle: function() {
         this.flipped = !this.flipped;
+      },
+      "showFront": function(){
+        this.flipped = false;
+      },
+      "showBack": function(){
+        this.flipped = true;
       }
     }
   });

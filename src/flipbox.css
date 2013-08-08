@@ -21,7 +21,6 @@ x-flipbox > * {
   left: 0;
   width: 100%;
   height: 100%;
-  background: white;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   -ms-backface-visibility: hidden;
@@ -65,19 +64,19 @@ x-flipbox > *:last-child {
   -moz-transform: rotateY(180deg) translateZ(0px);
   -webkit-transform: rotateY(180deg) translateZ(0px);
   -o-transform: rotateY(180deg) translateZ(0px); }
-x-flipbox[direction="up"] > *:first-child, x-flipbox[direction="down"] > *:first-child {
+x-flipbox[_anim-direction="up"] > *:first-child, x-flipbox[_anim-direction="down"] > *:first-child {
   transform: rotateX(0deg) translateZ(1px);
   -ms-transform: rotateX(0deg) translateZ(1px);
   -moz-transform: rotateX(0deg) translateZ(1px);
   -webkit-transform: rotateX(0deg) translateZ(1px);
   -o-transform: rotateX(0deg) translateZ(1px); }
-x-flipbox[direction="up"] > *:last-child {
+x-flipbox[_anim-direction="up"] > *:last-child {
   transform: rotateX(-180deg) translateZ(0px);
   -ms-transform: rotateX(-180deg) translateZ(0px);
   -moz-transform: rotateX(-180deg) translateZ(0px);
   -webkit-transform: rotateX(-180deg) translateZ(0px);
   -o-transform: rotateX(-180deg) translateZ(0px); }
-x-flipbox[direction="down"] > *:last-child {
+x-flipbox[_anim-direction="down"] > *:last-child {
   transform: rotateX(180deg) translateZ(0px);
   -ms-transform: rotateX(180deg) translateZ(0px);
   -moz-transform: rotateX(180deg) translateZ(0px);
@@ -97,39 +96,39 @@ x-flipbox[flipped] > *:last-child {
   -webkit-transform: rotateY(360deg) translateZ(0px);
   -o-transform: rotateY(360deg) translateZ(0px); }
 
-x-flipbox[direction="left"][flipped] > *:first-child {
+x-flipbox[_anim-direction="left"][flipped] > *:first-child {
   transform: rotateY(-180deg) translateZ(1px);
   -ms-transform: rotateY(-180deg) translateZ(1px);
   -moz-transform: rotateY(-180deg) translateZ(1px);
   -webkit-transform: rotateY(-180deg) translateZ(1px);
   -o-transform: rotateY(-180deg) translateZ(1px); }
-x-flipbox[direction="left"][flipped] > *:last-child {
+x-flipbox[_anim-direction="left"][flipped] > *:last-child {
   transform: rotateY(0deg) translateZ(0px);
   -ms-transform: rotateY(0deg) translateZ(0px);
   -moz-transform: rotateY(0deg) translateZ(0px);
   -webkit-transform: rotateY(0deg) translateZ(0px);
   -o-transform: rotateY(0deg) translateZ(0px); }
 
-x-flipbox[direction="up"][flipped] > *:first-child {
+x-flipbox[_anim-direction="up"][flipped] > *:first-child {
   transform: rotateX(180deg) translateZ(1px);
   -ms-transform: rotateX(180deg) translateZ(1px);
   -moz-transform: rotateX(180deg) translateZ(1px);
   -webkit-transform: rotateX(180deg) translateZ(1px);
   -o-transform: rotateX(180deg) translateZ(1px); }
-x-flipbox[direction="up"][flipped] > *:last-child {
+x-flipbox[_anim-direction="up"][flipped] > *:last-child {
   transform: rotateX(0deg) translateZ(0px);
   -ms-transform: rotateX(0deg) translateZ(0px);
   -moz-transform: rotateX(0deg) translateZ(0px);
   -webkit-transform: rotateX(0deg) translateZ(0px);
   -o-transform: rotateX(0deg) translateZ(0px); }
 
-x-flipbox[direction="down"][flipped] > *:first-child {
+x-flipbox[_anim-direction="down"][flipped] > *:first-child {
   transform: rotateX(-180deg) translateZ(1px);
   -ms-transform: rotateX(-180deg) translateZ(1px);
   -moz-transform: rotateX(-180deg) translateZ(1px);
   -webkit-transform: rotateX(-180deg) translateZ(1px);
   -o-transform: rotateX(-180deg) translateZ(1px); }
-x-flipbox[direction="down"][flipped] > *:last-child {
+x-flipbox[_anim-direction="down"][flipped] > *:last-child {
   transform: rotateX(0deg) translateZ(0px);
   -ms-transform: rotateX(0deg) translateZ(0px);
   -moz-transform: rotateX(0deg) translateZ(0px);

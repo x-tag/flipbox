@@ -34,7 +34,6 @@ x-flipbox > * {
   left: 0;
   width: 100%;
   height: 100%;
-  background: white;
   @include backfaceVisibility(hidden);
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
@@ -54,17 +53,17 @@ x-flipbox{
     @include backFaceTransform(rotateY(180deg));
   }
 
-  &[direction="up"], &[direction="down"]{
+  &[_anim-direction="up"], &[_anim-direction="down"]{
     &#{$frontFace} {
       @include frontFaceTransform(rotateX(0deg));
     }
   }
 
-  &[direction="up"]#{$backFace}{
+  &[_anim-direction="up"]#{$backFace}{
     @include backFaceTransform(rotateX(-180deg));
   } 
 
-  &[direction="down"]#{$backFace}{
+  &[_anim-direction="down"]#{$backFace}{
     @include backFaceTransform(rotateX(180deg));
   }
 }
@@ -81,7 +80,7 @@ x-flipbox[flipped]{
 }
 
 // flip left
-x-flipbox[direction="left"][flipped]{
+x-flipbox[_anim-direction="left"][flipped]{
   &#{$frontFace}{
     @include frontFaceTransform(rotateY(-180deg));
   }
@@ -92,7 +91,7 @@ x-flipbox[direction="left"][flipped]{
 }
 
 // flip up
-x-flipbox[direction="up"][flipped]{
+x-flipbox[_anim-direction="up"][flipped]{
   &#{$frontFace}{
     @include frontFaceTransform(rotateX(180deg));
   }
@@ -103,7 +102,7 @@ x-flipbox[direction="up"][flipped]{
 }
 
 // flip down
-x-flipbox[direction="down"][flipped]{
+x-flipbox[_anim-direction="down"][flipped]{
   &#{$frontFace}{
     @include frontFaceTransform(rotateX(-180deg));
   }

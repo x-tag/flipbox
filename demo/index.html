@@ -1,85 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <title>Flipbox Demo - X-Tag</title>
-  <!-- use these imports instead of the Brick files if running from submodule
-       repository instead of the Brick repository -->
-  <!--
-  <link rel="stylesheet" type="text/css" href="x-tag-components.css"/>
-  <link rel="stylesheet" type="text/css" href="../src/flipbox.css"/>
-
-  <script type="text/javascript" src="x-tag-components.js"></script>
-  <script type="text/javascript" src="../src/flipbox.js"></script>-->
-  <link rel="stylesheet" type="text/css" href="../../../dist/brick.css"/>
-  <script type="text/javascript" src="../../../dist/brick.js"></script>
-	<style>
-    x-flipbox{
-      height: 300px;
-      width: 220px;
-    }
-
-    x-flipbox > *:first-child {
-      z-index: 5;
-      background-color: red;
-    }
-    x-flipbox > *:last-child {
-      z-index: 1;
-      background-color: blue;
-    }
-    x-flipbox{
-
-    }
-	</style>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Brick: x-flipbox demos</title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,600">
+    <link rel="stylesheet" type="text/css" href="../../../dist/brick.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../site/css/prettify.css">
+    <link rel="stylesheet" type="text/css" href="../../../site/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="demo.css"/>
 </head>
-
 <body>
+<article>
+    <header><h1>x-flipbox</h1></header>
+    <p>A flipbox acts as an element that can flip between two sides of content, much like a playing card.</p>
+    <section class="demo-wrap">
+        <header><h2>Basic usage</h2></header>
+        <p>An <code class="prettyprint">&lt;x-flipbox&gt;</code> should contain only two direct children elements, each of which can contain any markup.</p> 
+        <p>The first child element will be considered the front face of the <code class="prettyprint">&lt;x-flipbox&gt;</code>.</p>
+        <p>The last child element will be considered the back face of the <code class="prettyprint">&lt;x-flipbox&gt;</code>.</p>
+        <div class="two-up">
+            <figure class="demo largeprint">
+                <x-flipbox>
+                    <div>I'm the front face.</div>
+                    <div>And I'm the back face.</div>
+                </x-flipbox>
+            </figure>
+        </div>
+        <div class="markup-wrap two-up">
+            <button class="prettybutton flip">Toggle flip</button>
+            <h3>Markup</h3>
+            <pre class="prettyprint html">&lt;x-flipbox&gt;<br/>    &lt;div&gt;I'm the front face.&lt;/div&gt;<br/>    &lt;div&gt;And I'm the back face.&lt;/div&gt;<br/>&lt;/x-flipbox&gt;</pre>
+            <h3>JavaScript</h3>
+            <pre class="prettyprint javascript">// assume that toggleButton and flipBox are already<br/>// defined as their respective DOM elements<br/>toggleButton.addEventListener(&quot;click&quot;, function(){<br/>    flipBox.toggle(); <br/>});</pre>
+        </div>
+    </section>
+    <section class="demo-wrap">
+        <header><h2>Changing flip direction: <code>direction</code></h2></header>
+        <p>To change the direction that the flip animation spins in, users can change either the <code>direction</code> attribute or the <code>.direction</code> property of the <code class="prettyprint">&lt;x-flipbox&gt;</code>.</p>
+        <p>Valid options: <code class="prettyprint">"right"</code>, <code class="prettyprint">"left"</code>, <code class="prettyprint">"up"</code>, <code class="prettyprint">"down"</code></p>
+        <div class="two-up">
+            <figure class="demo">
+                <x-flipbox direction="right">
+                    <img src="Card_front.png"/>
+                    <img src="Card_back.png"/>
+                </x-flipbox>
+            </figure>
+        </div>
+        <div class="markup-wrap two-up">
+            <button class="prettybutton flip">Toggle flip</button>
+            <button class="prettybutton direction">Change flip direction</button>
+            <h3>Markup</h3>
+            <pre class="prettyprint html">&lt;x-flipbox&gt;<br/>    &lt;div&gt;I'm the front face.&lt;/div&gt;<br/>    &lt;div&gt;And I'm the back face.&lt;/div&gt;<br/>&lt;/x-flipbox&gt;</pre>
+        </div>
+    </section>
+</article>
 
-	<h2>Create a Demo</h2>
-
-  <button data-action-type="toggleFlip">Flip</button>
-  <button data-action-type="toggleDirection">Switch Flip Direction (right)</button>
-
-  <x-flipbox>
-      <img class="flip-front" src="birnimal-graph.png"/>
-      <img class="flip-back" src="birnimal-settings.png"/>
-  </x-flipbox>
-
-  <x-flipbox>
-      <h1 class="flip-front">Front <button>HI</button></h1>
-      <h1 class="flip-back">Back <button>BYE</button></h1>
-  </x-flipbox>
-
-
-
-
+<script type="text/javascript" src="../../../dist/brick.js"></script>
+<script type="text/javascript" src="../../../site/js/prettify.js"></script>
+<script type="text/javascript" src="demo.js"></script>
 </body>
-
-<script type="text/javascript">
-
-  xtag.addEvent(document, 'click:delegate(button[data-action-type])', function(e) {
-    xtag.query(document, 'x-flipbox').forEach(function(flipbox){
-      var action = e.target;
-      switch(action.getAttribute('data-action-type')) {
-
-        case 'toggleFlip':
-          flipbox.toggle();
-          break;
-
-        case 'toggleDirection':
-          var directions = ['right','left','up','down'];
-          var idx = directions.indexOf(flipbox.direction)+1;
-          idx = idx >= 4 ? 0 : idx;
-          action.innerHTML = action.innerHTML.replace(/\((\w+)\)/, function() {
-            return '(' + directions[idx] + ')';
-          });
-          flipbox.direction = directions[idx];
-          break;
-      }
-    });
-  });
-
-</script>
-
 </html>
