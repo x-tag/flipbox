@@ -41,11 +41,11 @@ x-flipbox > * {
   -moz-transition-duration: 0.65s;
   -ms-transition-duration: 0.65s;
   -o-transition-duration: 0.65s;
-  -webkit-transition-timing-function: ease-in;
-  -moz-transition-timing-function: ease-in;
-  -ms-transition-timing-function: ease-in;
-  -o-transition-timing-function: ease-in;
-  transition-timing-function: ease-in;
+  -webkit-transition-timing-function: linear;
+  -moz-transition-timing-function: linear;
+  -ms-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  transition-timing-function: linear;
   -webkit-transition-delay: 0s;
   -moz-transition-delay: 0s;
   -ms-transition-delay: 0s;
