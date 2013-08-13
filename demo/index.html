@@ -28,7 +28,9 @@
             </figure>
         </div>
         <div class="markup-wrap two-up">
-            <button class="prettybutton flip">Toggle flip</button>
+            <div class="controls">
+                <button class="prettybutton" data-toggle-prop="flipped" data-toggle-target="x-flipbox">Toggle flip</button>
+            </div>
             <h3>Markup</h3>
             <pre class="prettyprint html">&lt;x-flipbox&gt;<br/>    &lt;div&gt;I'm the front face.&lt;/div&gt;<br/>    &lt;div&gt;And I'm the back face.&lt;/div&gt;<br/>&lt;/x-flipbox&gt;</pre>
             <h3>JavaScript</h3>
@@ -48,8 +50,10 @@
             </figure>
         </div>
         <div class="markup-wrap two-up">
-            <button class="prettybutton flip">Toggle flip</button>
-            <button class="prettybutton direction">Change flip direction</button>
+            <div class="controls">
+                <button class="prettybutton" data-toggle-prop="flipped" data-toggle-target="x-flipbox">Toggle flip</button>
+                <button class="prettybutton" data-toggle-prop="direction" data-toggle-target="x-flipbox" data-toggle-options='["right", "left", "up", "down"]'>Change flip direction</button>
+            </div>  
             <h3>Markup</h3>
             <pre class="prettyprint html">&lt;x-flipbox&gt;<br/>    &lt;div&gt;I'm the front face.&lt;/div&gt;<br/>    &lt;div&gt;And I'm the back face.&lt;/div&gt;<br/>&lt;/x-flipbox&gt;</pre>
         </div>
@@ -58,6 +62,7 @@
 
 <script type="text/javascript" src="../../../dist/brick.js"></script>
 <script type="text/javascript" src="../../../site/js/prettify.js"></script>
+<script type="text/javascript" src="../../../site/js/demo-page-helpers.js"></script>
 <script type="text/javascript" src="demo.js"></script>
 </body>
 </html>
