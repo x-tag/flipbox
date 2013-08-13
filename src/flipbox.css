@@ -36,11 +36,11 @@ x-flipbox > * {
   -moz-transition-property: -moz-transform;
   -ms-transition-property: -o-transform;
   -o-transition-property: -o-transform;
-  transition-duration: 0.65s;
-  -webkit-transition-duration: 0.65s;
-  -moz-transition-duration: 0.65s;
-  -ms-transition-duration: 0.65s;
-  -o-transition-duration: 0.65s;
+  transition-duration: 0.25s;
+  -webkit-transition-duration: 0.25s;
+  -moz-transition-duration: 0.25s;
+  -ms-transition-duration: 0.25s;
+  -o-transition-duration: 0.25s;
   -webkit-transition-timing-function: linear;
   -moz-transition-timing-function: linear;
   -ms-transition-timing-function: linear;

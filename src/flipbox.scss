@@ -40,7 +40,7 @@ x-flipbox > * {
   -ms-transform-style: preserve-3d;
   -o-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  @include animated(transform, 0.65s, linear);
+  @include animated(transform, 0.25s, linear);
 }
 
 // default styles
