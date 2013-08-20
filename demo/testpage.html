@@ -20,18 +20,17 @@
     x-flipbox{
       height: 300px;
       width: 220px;
+      margin-top: 1em;
     }
 
     x-flipbox > *:first-child {
-      z-index: 5;
       background-color: red;
     }
     x-flipbox > *:last-child {
-      z-index: 1;
       background-color: blue;
     }
-    x-flipbox{
-
+    button{
+      padding: 1em;
     }
 	</style>
 </head>
@@ -42,15 +41,15 @@
 
   <button data-action-type="toggleFlip">Flip</button>
   <button data-action-type="toggleDirection">Switch Flip Direction (right)</button>
-
+  <hr/>
   <x-flipbox>
-      <img class="flip-front" src="birnimal-graph.png"/>
-      <img class="flip-back" src="birnimal-settings.png"/>
+      <img src="birnimal-graph.png"/>
+      <img src="birnimal-settings.png"/>
   </x-flipbox>
 
   <x-flipbox>
-      <h1 class="flip-front">Front <button>HI</button></h1>
-      <h1 class="flip-back">Back <button>BYE</button></h1>
+      <div><h1>Front</h1></div>
+      <div><h1>Back</h1></div>
   </x-flipbox>
 
 

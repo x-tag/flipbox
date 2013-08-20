@@ -1,12 +1,12 @@
 (function() {
-
   xtag.register('x-flipbox', {
     lifecycle: {
       created: function() {
-          // instantiate flipped side without initial animation
-          if (this.flipped){
+          // instantiate sides without initial flip animation
+          if(this.firstElementChild){
             xtag.skipTransition(this.firstElementChild,function(){});
-          } else {
+          }
+          if(this.lastElementChild){
             xtag.skipTransition(this.lastElementChild,function(){});
           }
 

@@ -5,15 +5,16 @@ $backFace: "> *:last-child";
 
 // use this for any transforms of the original front face to preserve z-index
 @mixin frontFaceTransform($transform){
-  @include transformed(#{$transform} translateZ(1px));
+  @include transformed(#{$transform} translate3d(0px,0px,200px));
 }
 
 // use this for any transforms of the original back face to preserve z-index
 @mixin backFaceTransform($transform){
-  @include transformed(#{$transform} translateZ(0px));
+  @include transformed(#{$transform} translate3d(0px,0px,100px));
 }
 
 x-flipbox {
+  @include boxSizing(border-box);
   display: block;
   position: relative;
   height: 100%;
@@ -35,12 +36,14 @@ x-flipbox > * {
   width: 100%;
   height: 100%;
   @include backfaceVisibility(hidden);
+  @include animated(transform, 0.25s, linear);
+
+  /* DO NOT ERASE THESE TRANSFORM-STYLES; they fix a flickering issue in FFOS*/
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
   -o-transform-style: preserve-3d;
   transform-style: preserve-3d;
-  @include animated(transform, 0.25s, linear);
 }
 
 // default styles
@@ -70,6 +73,15 @@ x-flipbox{
 
 // flip right
 x-flipbox[flipped]{
+  /* Note: adding a dummy style to flipped flipboxes forces Android 4+'s 
+   * native browser to rerender the flipbox, fixing an issue where the flipping 
+   * animation wouldn't play normally */
+  &:after{ 
+    /* DO NOT ERASE THIS :after SELECTOR */
+    content: "";
+    display: none;
+  }
+
   &#{$frontFace}{
     @include frontFaceTransform(rotateY(180deg));
   }
