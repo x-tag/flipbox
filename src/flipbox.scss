@@ -50,7 +50,7 @@ x-flipbox > * {
 x-flipbox{
   &#{$frontFace}{
     @include frontFaceTransform(rotateY(0deg));
-    z-index: 2;
+    z-index: 2; // z-indeces are neccessary for IE9
   }
 
   &#{$backFace} {
