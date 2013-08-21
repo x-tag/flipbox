@@ -5,12 +5,13 @@ $backFace: "> *:last-child";
 
 // use this for any transforms of the original front face to preserve z-index
 @mixin frontFaceTransform($transform){
-  @include transformed(#{$transform} translate3d(0px,0px,200px));
+  // apply perspective in the transform itself to account for IE10 not respecting preserve-3d
+  @include transformed(perspective(800px) #{$transform} translate3d(0px,0px,2px));
 }
 
 // use this for any transforms of the original back face to preserve z-index
 @mixin backFaceTransform($transform){
-  @include transformed(#{$transform} translate3d(0px,0px,100px));
+  @include transformed(perspective(800px) #{$transform} translate3d(0px,0px,1px));
 }
 
 x-flipbox {
@@ -19,7 +20,6 @@ x-flipbox {
   position: relative;
   height: 100%;
   width: 100%;
-  @include perspective(1400px);
 
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
@@ -50,10 +50,12 @@ x-flipbox > * {
 x-flipbox{
   &#{$frontFace}{
     @include frontFaceTransform(rotateY(0deg));
+    z-index: 2;
   }
 
   &#{$backFace} {
     @include backFaceTransform(rotateY(180deg));
+    z-index: 1;
   }
 
   &[_anim-direction="up"], &[_anim-direction="down"]{
@@ -84,10 +86,12 @@ x-flipbox[flipped]{
 
   &#{$frontFace}{
     @include frontFaceTransform(rotateY(180deg));
+    z-index: 1; // z-indeces are neccessary for IE9
   }
 
   &#{$backFace} {
     @include backFaceTransform(rotateY(360deg));
+    z-index: 2;
   }
 }
 

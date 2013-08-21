@@ -8,11 +8,6 @@ x-flipbox {
   position: relative;
   height: 100%;
   width: 100%;
-  -webkit-perspective: 1400px;
-  -moz-perspective: 1400px;
-  -o-perspective: 1400px;
-  -ms-perspective: 1400px;
-  perspective: 1400px;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   -ms-transform-style: preserve-3d;
@@ -59,35 +54,37 @@ x-flipbox > * {
   transform-style: preserve-3d; }
 
 x-flipbox > *:first-child {
-  transform: rotateY(0deg) translate3d(0px, 0px, 200px);
-  -ms-transform: rotateY(0deg) translate3d(0px, 0px, 200px);
-  -moz-transform: rotateY(0deg) translate3d(0px, 0px, 200px);
-  -webkit-transform: rotateY(0deg) translate3d(0px, 0px, 200px);
-  -o-transform: rotateY(0deg) translate3d(0px, 0px, 200px); }
+  transform: perspective(800px) rotateY(0deg) translate3d(0px, 0px, 2px);
+  -ms-transform: perspective(800px) rotateY(0deg) translate3d(0px, 0px, 2px);
+  -moz-transform: perspective(800px) rotateY(0deg) translate3d(0px, 0px, 2px);
+  -webkit-transform: perspective(800px) rotateY(0deg) translate3d(0px, 0px, 2px);
+  -o-transform: perspective(800px) rotateY(0deg) translate3d(0px, 0px, 2px);
+  z-index: 2; }
 x-flipbox > *:last-child {
-  transform: rotateY(180deg) translate3d(0px, 0px, 100px);
-  -ms-transform: rotateY(180deg) translate3d(0px, 0px, 100px);
-  -moz-transform: rotateY(180deg) translate3d(0px, 0px, 100px);
-  -webkit-transform: rotateY(180deg) translate3d(0px, 0px, 100px);
-  -o-transform: rotateY(180deg) translate3d(0px, 0px, 100px); }
+  transform: perspective(800px) rotateY(180deg) translate3d(0px, 0px, 1px);
+  -ms-transform: perspective(800px) rotateY(180deg) translate3d(0px, 0px, 1px);
+  -moz-transform: perspective(800px) rotateY(180deg) translate3d(0px, 0px, 1px);
+  -webkit-transform: perspective(800px) rotateY(180deg) translate3d(0px, 0px, 1px);
+  -o-transform: perspective(800px) rotateY(180deg) translate3d(0px, 0px, 1px);
+  z-index: 1; }
 x-flipbox[_anim-direction="up"] > *:first-child, x-flipbox[_anim-direction="down"] > *:first-child {
-  transform: rotateX(0deg) translate3d(0px, 0px, 200px);
-  -ms-transform: rotateX(0deg) translate3d(0px, 0px, 200px);
-  -moz-transform: rotateX(0deg) translate3d(0px, 0px, 200px);
-  -webkit-transform: rotateX(0deg) translate3d(0px, 0px, 200px);
-  -o-transform: rotateX(0deg) translate3d(0px, 0px, 200px); }
+  transform: perspective(800px) rotateX(0deg) translate3d(0px, 0px, 2px);
+  -ms-transform: perspective(800px) rotateX(0deg) translate3d(0px, 0px, 2px);
+  -moz-transform: perspective(800px) rotateX(0deg) translate3d(0px, 0px, 2px);
+  -webkit-transform: perspective(800px) rotateX(0deg) translate3d(0px, 0px, 2px);
+  -o-transform: perspective(800px) rotateX(0deg) translate3d(0px, 0px, 2px); }
 x-flipbox[_anim-direction="up"] > *:last-child {
-  transform: rotateX(-180deg) translate3d(0px, 0px, 100px);
-  -ms-transform: rotateX(-180deg) translate3d(0px, 0px, 100px);
-  -moz-transform: rotateX(-180deg) translate3d(0px, 0px, 100px);
-  -webkit-transform: rotateX(-180deg) translate3d(0px, 0px, 100px);
-  -o-transform: rotateX(-180deg) translate3d(0px, 0px, 100px); }
+  transform: perspective(800px) rotateX(-180deg) translate3d(0px, 0px, 1px);
+  -ms-transform: perspective(800px) rotateX(-180deg) translate3d(0px, 0px, 1px);
+  -moz-transform: perspective(800px) rotateX(-180deg) translate3d(0px, 0px, 1px);
+  -webkit-transform: perspective(800px) rotateX(-180deg) translate3d(0px, 0px, 1px);
+  -o-transform: perspective(800px) rotateX(-180deg) translate3d(0px, 0px, 1px); }
 x-flipbox[_anim-direction="down"] > *:last-child {
-  transform: rotateX(180deg) translate3d(0px, 0px, 100px);
-  -ms-transform: rotateX(180deg) translate3d(0px, 0px, 100px);
-  -moz-transform: rotateX(180deg) translate3d(0px, 0px, 100px);
-  -webkit-transform: rotateX(180deg) translate3d(0px, 0px, 100px);
-  -o-transform: rotateX(180deg) translate3d(0px, 0px, 100px); }
+  transform: perspective(800px) rotateX(180deg) translate3d(0px, 0px, 1px);
+  -ms-transform: perspective(800px) rotateX(180deg) translate3d(0px, 0px, 1px);
+  -moz-transform: perspective(800px) rotateX(180deg) translate3d(0px, 0px, 1px);
+  -webkit-transform: perspective(800px) rotateX(180deg) translate3d(0px, 0px, 1px);
+  -o-transform: perspective(800px) rotateX(180deg) translate3d(0px, 0px, 1px); }
 
 x-flipbox[flipped] {
   /* Note: adding a dummy style to flipped flipboxes forces Android 4+'s 
@@ -98,53 +95,55 @@ x-flipbox[flipped] {
     content: "";
     display: none; }
   x-flipbox[flipped] > *:first-child {
-    transform: rotateY(180deg) translate3d(0px, 0px, 200px);
-    -ms-transform: rotateY(180deg) translate3d(0px, 0px, 200px);
-    -moz-transform: rotateY(180deg) translate3d(0px, 0px, 200px);
-    -webkit-transform: rotateY(180deg) translate3d(0px, 0px, 200px);
-    -o-transform: rotateY(180deg) translate3d(0px, 0px, 200px); }
+    transform: perspective(800px) rotateY(180deg) translate3d(0px, 0px, 2px);
+    -ms-transform: perspective(800px) rotateY(180deg) translate3d(0px, 0px, 2px);
+    -moz-transform: perspective(800px) rotateY(180deg) translate3d(0px, 0px, 2px);
+    -webkit-transform: perspective(800px) rotateY(180deg) translate3d(0px, 0px, 2px);
+    -o-transform: perspective(800px) rotateY(180deg) translate3d(0px, 0px, 2px);
+    z-index: 1; }
   x-flipbox[flipped] > *:last-child {
-    transform: rotateY(360deg) translate3d(0px, 0px, 100px);
-    -ms-transform: rotateY(360deg) translate3d(0px, 0px, 100px);
-    -moz-transform: rotateY(360deg) translate3d(0px, 0px, 100px);
-    -webkit-transform: rotateY(360deg) translate3d(0px, 0px, 100px);
-    -o-transform: rotateY(360deg) translate3d(0px, 0px, 100px); }
+    transform: perspective(800px) rotateY(360deg) translate3d(0px, 0px, 1px);
+    -ms-transform: perspective(800px) rotateY(360deg) translate3d(0px, 0px, 1px);
+    -moz-transform: perspective(800px) rotateY(360deg) translate3d(0px, 0px, 1px);
+    -webkit-transform: perspective(800px) rotateY(360deg) translate3d(0px, 0px, 1px);
+    -o-transform: perspective(800px) rotateY(360deg) translate3d(0px, 0px, 1px);
+    z-index: 2; }
 
 x-flipbox[_anim-direction="left"][flipped] > *:first-child {
-  transform: rotateY(-180deg) translate3d(0px, 0px, 200px);
-  -ms-transform: rotateY(-180deg) translate3d(0px, 0px, 200px);
-  -moz-transform: rotateY(-180deg) translate3d(0px, 0px, 200px);
-  -webkit-transform: rotateY(-180deg) translate3d(0px, 0px, 200px);
-  -o-transform: rotateY(-180deg) translate3d(0px, 0px, 200px); }
+  transform: perspective(800px) rotateY(-180deg) translate3d(0px, 0px, 2px);
+  -ms-transform: perspective(800px) rotateY(-180deg) translate3d(0px, 0px, 2px);
+  -moz-transform: perspective(800px) rotateY(-180deg) translate3d(0px, 0px, 2px);
+  -webkit-transform: perspective(800px) rotateY(-180deg) translate3d(0px, 0px, 2px);
+  -o-transform: perspective(800px) rotateY(-180deg) translate3d(0px, 0px, 2px); }
 x-flipbox[_anim-direction="left"][flipped] > *:last-child {
-  transform: rotateY(0deg) translate3d(0px, 0px, 100px);
-  -ms-transform: rotateY(0deg) translate3d(0px, 0px, 100px);
-  -moz-transform: rotateY(0deg) translate3d(0px, 0px, 100px);
-  -webkit-transform: rotateY(0deg) translate3d(0px, 0px, 100px);
-  -o-transform: rotateY(0deg) translate3d(0px, 0px, 100px); }
+  transform: perspective(800px) rotateY(0deg) translate3d(0px, 0px, 1px);
+  -ms-transform: perspective(800px) rotateY(0deg) translate3d(0px, 0px, 1px);
+  -moz-transform: perspective(800px) rotateY(0deg) translate3d(0px, 0px, 1px);
+  -webkit-transform: perspective(800px) rotateY(0deg) translate3d(0px, 0px, 1px);
+  -o-transform: perspective(800px) rotateY(0deg) translate3d(0px, 0px, 1px); }
 
 x-flipbox[_anim-direction="up"][flipped] > *:first-child {
-  transform: rotateX(180deg) translate3d(0px, 0px, 200px);
-  -ms-transform: rotateX(180deg) translate3d(0px, 0px, 200px);
-  -moz-transform: rotateX(180deg) translate3d(0px, 0px, 200px);
-  -webkit-transform: rotateX(180deg) translate3d(0px, 0px, 200px);
-  -o-transform: rotateX(180deg) translate3d(0px, 0px, 200px); }
+  transform: perspective(800px) rotateX(180deg) translate3d(0px, 0px, 2px);
+  -ms-transform: perspective(800px) rotateX(180deg) translate3d(0px, 0px, 2px);
+  -moz-transform: perspective(800px) rotateX(180deg) translate3d(0px, 0px, 2px);
+  -webkit-transform: perspective(800px) rotateX(180deg) translate3d(0px, 0px, 2px);
+  -o-transform: perspective(800px) rotateX(180deg) translate3d(0px, 0px, 2px); }
 x-flipbox[_anim-direction="up"][flipped] > *:last-child {
-  transform: rotateX(0deg) translate3d(0px, 0px, 100px);
-  -ms-transform: rotateX(0deg) translate3d(0px, 0px, 100px);
-  -moz-transform: rotateX(0deg) translate3d(0px, 0px, 100px);
-  -webkit-transform: rotateX(0deg) translate3d(0px, 0px, 100px);
-  -o-transform: rotateX(0deg) translate3d(0px, 0px, 100px); }
+  transform: perspective(800px) rotateX(0deg) translate3d(0px, 0px, 1px);
+  -ms-transform: perspective(800px) rotateX(0deg) translate3d(0px, 0px, 1px);
+  -moz-transform: perspective(800px) rotateX(0deg) translate3d(0px, 0px, 1px);
+  -webkit-transform: perspective(800px) rotateX(0deg) translate3d(0px, 0px, 1px);
+  -o-transform: perspective(800px) rotateX(0deg) translate3d(0px, 0px, 1px); }
 
 x-flipbox[_anim-direction="down"][flipped] > *:first-child {
-  transform: rotateX(-180deg) translate3d(0px, 0px, 200px);
-  -ms-transform: rotateX(-180deg) translate3d(0px, 0px, 200px);
-  -moz-transform: rotateX(-180deg) translate3d(0px, 0px, 200px);
-  -webkit-transform: rotateX(-180deg) translate3d(0px, 0px, 200px);
-  -o-transform: rotateX(-180deg) translate3d(0px, 0px, 200px); }
+  transform: perspective(800px) rotateX(-180deg) translate3d(0px, 0px, 2px);
+  -ms-transform: perspective(800px) rotateX(-180deg) translate3d(0px, 0px, 2px);
+  -moz-transform: perspective(800px) rotateX(-180deg) translate3d(0px, 0px, 2px);
+  -webkit-transform: perspective(800px) rotateX(-180deg) translate3d(0px, 0px, 2px);
+  -o-transform: perspective(800px) rotateX(-180deg) translate3d(0px, 0px, 2px); }
 x-flipbox[_anim-direction="down"][flipped] > *:last-child {
-  transform: rotateX(0deg) translate3d(0px, 0px, 100px);
-  -ms-transform: rotateX(0deg) translate3d(0px, 0px, 100px);
-  -moz-transform: rotateX(0deg) translate3d(0px, 0px, 100px);
-  -webkit-transform: rotateX(0deg) translate3d(0px, 0px, 100px);
-  -o-transform: rotateX(0deg) translate3d(0px, 0px, 100px); }
+  transform: perspective(800px) rotateX(0deg) translate3d(0px, 0px, 1px);
+  -ms-transform: perspective(800px) rotateX(0deg) translate3d(0px, 0px, 1px);
+  -moz-transform: perspective(800px) rotateX(0deg) translate3d(0px, 0px, 1px);
+  -webkit-transform: perspective(800px) rotateX(0deg) translate3d(0px, 0px, 1px);
+  -o-transform: perspective(800px) rotateX(0deg) translate3d(0px, 0px, 1px); }
