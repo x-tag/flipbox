@@ -5,12 +5,12 @@ $backFace: "> *:last-child";
 
 // use this for any transforms of the original front face to preserve z-index
 @mixin frontFaceTransform($transform){
-  @include transformed(#{$transform} translate3d(0px,0px,200px));
+  @include transformed(#{$transform} translate3d(0px,0px,2px));
 }
 
 // use this for any transforms of the original back face to preserve z-index
 @mixin backFaceTransform($transform){
-  @include transformed(#{$transform} translate3d(0px,0px,100px));
+  @include transformed(#{$transform} translate3d(0px,0px,1px));
 }
 
 x-flipbox {
