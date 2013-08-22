@@ -20,7 +20,7 @@
         </div>
         <div class="markup-wrap two-up">
             <div class="controls">
-                <button class="prettybutton" data-toggle-prop="flipped" data-toggle-target="x-flipbox">Toggle flip</button>
+                <button class="btn btn-default" data-toggle-prop="flipped" data-toggle-target="x-flipbox">Toggle flip</button>
             </div>
             <h3>Markup</h3>
             <pre class="prettyprint html">&lt;x-flipbox&gt;<br/>    &lt;div&gt;I'm the front face.&lt;/div&gt;<br/>    &lt;div&gt;And I'm the back face.&lt;/div&gt;<br/>&lt;/x-flipbox&gt;</pre>
@@ -36,15 +36,15 @@
         <div class="two-up">
             <figure class="demo">
                 <x-flipbox direction="right">
-                    <img src="Card_front.png"/>
-                    <img src="Card_back.png"/>
+                    <img src="{{REL_PATH}}site/img/Card_front.png"/>
+                    <img src="{{REL_PATH}}site/img/Card_back.png"/>
                 </x-flipbox>
             </figure>
         </div>
         <div class="markup-wrap two-up">
             <div class="controls">
-                <button class="prettybutton" data-toggle-prop="flipped" data-toggle-target="x-flipbox">Toggle flip</button>
-                <button class="prettybutton" data-toggle-prop="direction" data-toggle-target="x-flipbox" data-toggle-options='["right", "left", "up", "down"]'>Change flip direction</button>
+                <button class="btn btn-default" data-toggle-prop="flipped" data-toggle-target="x-flipbox">Toggle flip</button>
+                <button class="btn btn-default" data-toggle-prop="direction" data-toggle-target="x-flipbox" data-toggle-options='["right", "left", "up", "down"]'>Change flip direction</button>
             </div>  
             <h3>Markup</h3>
             <pre class="prettyprint html">&lt;x-flipbox&gt;<br/>    &lt;div&gt;I'm the front face.&lt;/div&gt;<br/>    &lt;div&gt;And I'm the back face.&lt;/div&gt;<br/>&lt;/x-flipbox&gt;</pre>
