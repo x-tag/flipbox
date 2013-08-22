@@ -9,8 +9,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <title>Brick x-flipbox demos</title>
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,600">
-    <link rel="stylesheet" type="text/css" href="../../../dist/brick.css"/>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400">
+    <link rel="stylesheet" href="../../../site/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../dist/brick.css"/>
     <link rel="stylesheet" href="../../../site/css/main.css">
     
     <link rel="stylesheet" type="text/css" href="../../../site/css/prettify.css">
@@ -18,23 +19,39 @@
 
   </head>
   <body>
-    <article>
-      <header class="site-header">
-        
-
-        
-<nav class="site-nav">
-  <a href="../../../index.html">Home</a>
-  <a href="../../../download.html">Download</a>
-  <a href="../../../docs.html">Documentation &amp; Demos</a>
-  <a href="http://github.com/mozilla/brick/">GitHub</a>
-  <a href="http://github.com/mozilla/brick/issues">Issues</a>
+    <header class="site-header">
+      
+<nav class="navbar navbar-default navbar-fixed-top grayshade" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="../../../index.html">
+        <img class="logo" src="../../../site/img/logo.png">
+        Brick<small> 1.0.4beta</small>
+      </a>
+    </div>
+    <ul class="navbar-nav nav">
+      <li><a href="../../../docs.html">
+        <span class="succinct">Docs</span>
+        <span class="verbose">Documentation &amp; Demos</span>
+      </a></li>
+      <li><a href="../../../download.html">
+        <span>Download</span>
+      </a></li>
+      <li><a href="http://github.com/mozilla/brick/">
+        <span>Github</span>
+      </a></li>
+      <li><a href="http://github.com/mozilla/brick/issues">
+        <span>Issues</span>
+      </a></li>
+    </ul>
+  </div>
 </nav>
 
-
-        
-        
-      </header>
+      
+      
+      </div>
+    </header>
+    <article class="container">
       
     <header>
         <h1>x-flipbox</h1> 
@@ -90,17 +107,11 @@
     </section>
 
 
-      <footer>
-        
-<nav class="site-nav">
-  <a href="../../../index.html">Home</a>
-  <a href="../../../download.html">Download</a>
-  <a href="../../../docs.html">Documentation &amp; Demos</a>
-  <a href="http://github.com/mozilla/brick/">GitHub</a>
-  <a href="http://github.com/mozilla/brick/issues">Issues</a>
-</nav>
-
-        <a class="moz" href="https://mozilla.org/"><img alt="mozilla" height="32" src="../../../site/img/mozilla_wordmark.png" title="built by Mozilla"></a>
+      <footer class="row">
+        <div class="col-xs-8"></div>
+        <div class="col-xs-4">
+          <a class="moz" href="https://mozilla.org/"><img alt="mozilla" src="../../../site/img/mozillaHTML5.png" title="built by Mozilla"></a>
+        </div>
       </footer>
     </article>
     <script src="../../../dist/brick.js"></script>
