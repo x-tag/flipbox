@@ -8,7 +8,7 @@
 	"categories": [
 		"structural"
 	],
-	"demo": "demo/index.html",
+	"demo": "demo/testpage.html",
 	"compatibility": {
 		"firefox": 5,
 		"chrome": 4,
