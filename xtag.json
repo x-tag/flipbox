@@ -1,7 +1,7 @@
 {
 	"name": "Flipbox",
 	"tagName": "x-flipbox",
-	"version": "0.2.3",
+	"version": "0.2.4",
 	"author": "Arron Schaar, Daniel Buchner",
 	"description": "Flips between two content elements with a CSS Animation, similar to flipping a playing card. The front face defaults to the first direct child element of the <x-flipbox>, and the back face defaults to the last direct child element.",
 	"images": [],
