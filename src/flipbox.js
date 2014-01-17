@@ -1,4 +1,17 @@
 (function() {
+
+  function reveal(e){
+    var flipBox = e.currentTarget;
+    if (this.parentNode == flipBox){
+      if (this.parentNode.firstElementChild == this){
+        flipBox.flipped = false;
+      }
+      else if(this.parentNode.lastElementChild == this){
+        flipBox.flipped = true;
+      }
+    }
+  }
+
   xtag.register('x-flipbox', {
     lifecycle: {
       created: function() {
@@ -9,7 +22,6 @@
           if(this.lastElementChild){
             xtag.skipTransition(this.lastElementChild,function(){});
           }
-
           if(!this.hasAttribute("direction")){
             this.xtag._direction = "right";
           }
@@ -17,37 +29,15 @@
     },
     events:{
       // only listen to one side of flipbox to prevent double firing of flipend
-      'transitionend:delegate(*:first-child)': function(e) {
+      'transitionend:delegate(x-flipbox > *:first-child)': function(e) {
           // because we can't use the descendent selector of > at the front of
           // our delegation, make sure this is the correct top-level element
-          var frontCard = e.target;
-          var flipBox = frontCard.parentNode;
-          if(flipBox.nodeName.toLowerCase() === "x-flipbox"){
+          var flipBox = e.currentTarget;
+          if (this.parentNode == flipBox){
             xtag.fireEvent(flipBox, "flipend");
           }
       },
-      'show:delegate(*:first-child)': function(e){
-         // because we can't use the descendent selector of > at the front of
-         // our delegation, make sure this is the correct top-level element
-         
-         var frontCard = e.target;
-         var flipBox = frontCard.parentNode;
-         
-         if(flipBox.nodeName.toLowerCase() === "x-flipbox"){
-            flipBox.flipped = false;
-         }
-      },
-      'show:delegate(*:last-child)': function(e){
-         // because we can't use the descendent selector of > at the front of
-         // our delegation, make sure this is the correct top-level element
-         
-         var backCard = e.target;
-         var flipBox = backCard.parentNode;
-         
-         if(flipBox.nodeName.toLowerCase() === "x-flipbox"){
-            flipBox.flipped = true;
-         }
-      }
+      'reveal:delegate(x-flipbox > *)': reveal
     },
     accessors: {
       direction: {
@@ -57,13 +47,15 @@
         },
         set: function(value) {
           // set animation direction attribute and skip any transition
+          var self = this;
+          xtag.skip(elem, before, after);
           xtag.skipTransition(this.firstElementChild, function() {
-            this.setAttribute('_anim-direction', value);
-          }, this);
+            self.setAttribute('_anim-direction', value);
+            return function(){};
+          });
           xtag.skipTransition(this.lastElementChild, function() {
-            this.setAttribute('_anim-direction', value);
-          }, this);
-
+            self.setAttribute('_anim-direction', value);
+          });
           this.xtag._direction = value;
         }
       },
