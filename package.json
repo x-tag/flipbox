@@ -1,6 +1,6 @@
 {
   "name": "x-flipbox",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "dependencies": {},
   "devDependencies": {
     "bower": "~1.2.0",
