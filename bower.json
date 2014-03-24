@@ -1,7 +1,7 @@
 {
   "name": "Flipbox",
   "description": "Flips between two content elements with a CSS Animation, similar to flipping a playing card.",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "keywords": [
     "web-components",
     "element",
