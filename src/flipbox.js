@@ -1,17 +1,5 @@
 (function() {
 
-  function reveal(e){
-    var flipBox = e.currentTarget;
-    if (this.parentNode == flipBox) {
-      if (this.parentNode.firstElementChild == this) {
-        flipBox.flipped = false;
-      }
-      else if (this.parentNode.lastElementChild == this) {
-        flipBox.flipped = true;
-      }
-    }
-  }
-
   xtag.register('x-flipbox', {
     lifecycle: {
       created: function () {
@@ -36,8 +24,7 @@
           if (this.parentNode == flipBox) {
             xtag.fireEvent(flipBox, "flipend");
           }
-      },
-      'reveal:delegate(x-flipbox > *)': reveal
+      }
     },
     accessors: {
       direction: {
