@@ -9,8 +9,7 @@
   ],
   "main": [
     "src/flipbox.js",
-    "src/flipbox.css",
-    "src/flipbox.styl"
+    "src/flipbox.css"
   ],
   "dependencies": {
     "x-tag-core": "*"
